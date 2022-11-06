@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.core.view.get
 
 class MainActivity : AppCompatActivity() {
     companion object{ const val sharedPrefFile = "nicolasdroidburger" }
@@ -50,22 +49,22 @@ class MainActivity : AppCompatActivity() {
 // set on-click listener
         button.setOnClickListener {
             if (selectTime.text.equals("Select Time") || selectTime.text.isEmpty() || editTextPrenom.text.isEmpty() || editTextNom.text.isEmpty() || editTextAdresse.text.isEmpty() || editTextTelephone.text.isEmpty() || editTextTelephone.text.length != 10){
-            Toast.makeText(this@MainActivity, "Veuillez remplir tout les champs svp.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, "Merci de remplir tout les champs correctement avant de valider.", Toast.LENGTH_SHORT).show()
             }
             else { Toast.makeText(this@MainActivity, "Merci", Toast.LENGTH_SHORT).show()
-                val savePrenom:String = editTextPrenom.text.toString()
-                val saveNom:String = editTextNom.text.toString()
-                val saveAdresse:String = editTextAdresse.text.toString()
-                val saveTelephone:String = editTextTelephone.text.toString()
-                val saveBurger: String = position_burger
+                val prenomConfirme:String = editTextPrenom.text.toString()
+                val NomConfirme:String = editTextNom.text.toString()
+                val adresseConfirme:String = editTextAdresse.text.toString()
+                val telephoneConfirme:String = editTextTelephone.text.toString()
+                val burgerConfirme: String = position_burger
                 val saveHeure:String = selectTime.text.toString()
                 val editor:SharedPreferences.Editor =  sharedPreferences.edit()
-                editor.putString("savePrenom_key",savePrenom)
-                editor.putString("saveNom_key",saveNom)
-                editor.putString("saveAdresse_key",saveAdresse)
-                editor.putString("saveTelephone_key",saveTelephone)
-                editor.putString("saveBurger_key",saveBurger)
-                editor.putString("saveHeure_key",saveHeure)
+                editor.putString("Prenom",prenomConfirme)
+                editor.putString("Nom",NomConfirme)
+                editor.putString("Adresse",adresseConfirme)
+                editor.putString("Telephone",telephoneConfirme)
+                editor.putString("Burger",burgerConfirme)
+                editor.putString("Heure",saveHeure)
                 editor.apply()
                 editor.commit()
                 System.out.println(sharedPreferences.all)
