@@ -65,7 +65,7 @@ class ConfirmationActivity : AppCompatActivity() {
         }
         //val recuperationNom: String? = sharedPreferences.getString( "saveNom_key","Nom" )
         buttonConfirmer.setOnClickListener {
-            sendEmail("nicolas.calabuig@isen.yncrea.fr","confirmation commande","commande de burger")
+            sendEmail("Marc.mollinari@gmail.com","Confirmation commande","Votre commande a bien été enregistrée")
          }
         buttonRetour.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
